@@ -40,6 +40,13 @@ except ModuleNotFoundError:
     msg = "`pip install langchain` \n\n"
     LangChain = NotInstalled("langchain", "langchain", custom_msg=msg)
 
+# Watsonx Generator
+try:
+    from bertopic.representation._watsonx import Watsonx
+except ModuleNotFoundError:
+    msg = "`pip install ibm-watsonx-ai` \n\n"
+    Watsonx = NotInstalled("Watsonx", "watsonx", custom_msg=msg)
+
 # POS using Spacy
 try:
     from bertopic.representation._pos import PartOfSpeech
@@ -63,6 +70,7 @@ __all__ = [
     "Cohere",
     "OpenAI",
     "LangChain",
+    "Watsonx",
     "LlamaCPP",
     "VisualRepresentation"
 ]
