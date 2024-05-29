@@ -1,5 +1,4 @@
 import time
-#import openai
 import pandas as pd
 from tqdm import tqdm
 from scipy.sparse import csr_matrix
@@ -9,7 +8,7 @@ from bertopic.representation._utils import retry_with_exponential_backoff, trunc
 from ibm_watsonx_ai.foundation_models import Model
 
 DEFAULT_PROMPT = """
-This is a list of texts where each collection of texts describe a topic. After each collection of texts, the name of the topic they represent is mentioned as a short-highly-descriptive title
+This is a list of texts where each collection of texts describe a topic. After each collection of texts, the name of the topic they represent is mentioned as a short-highly-descriptive title and finishes with ###
 
 Topic:
 Sample texts from this topic:
@@ -34,7 +33,7 @@ Topic:
 Sample texts from this topic:
 [DOCUMENTS]
 Keywords: [KEYWORDS]
-Topic name:"""
+Topic name: """
 
 DEFAULT_CHAT_PROMPT = """
 I have a topic that contains the following documents: 
